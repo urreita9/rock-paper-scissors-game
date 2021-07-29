@@ -1,0 +1,51 @@
+.options__container {
+  width: 75%;
+  height: fit-content;
+  margin: 150px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 300px;
+  .triangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+  }
+  .plays {
+    position: absolute;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .border {
+      width: 80px;
+      height: 80px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .rock {
+    bottom: -8%;
+    background-image: $rockGradient;
+  }
+  .paper {
+    bottom: 75%;
+    left: 2%;
+    background-image: $paperGradient;
+  }
+  .scissors {
+    bottom: 75%;
+    right: 2%;
+    background-image: $scissorsGradient;
+  }
+}

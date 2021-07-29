@@ -1,11 +1,14 @@
 import { Title } from "./components/Title";
-
-function App() {
+import { Options } from "./components/Options";
+import { GameProvider } from "./context/gameProvider";
+export const App = () => {
   return (
-    <div className="App">
-      <Title/>
-    </div>
+    <GameProvider>
+      <div className="container">
+        <Title />
+        <Options />
+        <div></div>
+      </div>
+    </GameProvider>
   );
-}
-
-export default App;
+};

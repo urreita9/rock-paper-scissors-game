@@ -1,0 +1,36 @@
+.title__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  border: 3px solid $headerOutline;
+  border-radius: 5px;
+  width: 75%;
+  height: 100px;
+
+  .title__left {
+    line-height: 0.8;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    p {
+      color: white;
+    }
+  }
+  .title__right {
+    background-color: white;
+    text-align: center;
+    width: 30%;
+    height: 70%;
+    border-radius: 5px;
+    margin-right: 10px;
+    p {
+      font-size: 0.8rem;
+      color: $scoreText;
+    }
+    span {
+      color: $darkText;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+  }
+}
