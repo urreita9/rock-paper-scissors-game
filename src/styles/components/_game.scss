@@ -1,0 +1,41 @@
+.game__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 90%;
+  .plays {
+    position: relative;
+  }
+  .game__side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    max-width: 50%;
+    .game__picks {
+      text-align: center;
+      text-transform: uppercase;
+      color: white;
+      margin-top: 10px;
+    }
+  }
+}
+.playAgain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-self: center;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3.2px;
+  margin: 20px auto;
+  background-color: white;
+  color: transparent;
+  color: hsl(229, 48%, 17%);
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+}

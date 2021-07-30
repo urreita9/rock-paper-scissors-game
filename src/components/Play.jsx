@@ -1,16 +1,21 @@
 import React from "react";
+import { useGame } from "../context/gameProvider";
 
-export const Play = ({ name, id, className }) => {
+export const Play = ({ name, id, className, src }) => {
+  const { gameOn, setGameOn, getRandomInt, choosePlay } = useGame();
   return (
-    <div className={`plays ${className}`}>
+    <div
+      className={`plays ${
+        gameOn ? `${className}__gameOn` : `${className}__position`
+      }`}
+      onClick={() => {
+        setGameOn(true);
+        getRandomInt(0, 3);
+        choosePlay(id, name);
+      }}
+    >
       <div className="border">
-        {name === "rock" ? <img src="images/icon-rock.svg" alt="rock" /> : null}
-        {name === "paper" ? (
-          <img src="images/icon-paper.svg" alt="paper" />
-        ) : null}
-        {name === "scissors" ? (
-          <img src="images/icon-scissors.svg" alt="scissors" />
-        ) : null}
+        <img src={src} alt={name} />
       </div>
     </div>
   );

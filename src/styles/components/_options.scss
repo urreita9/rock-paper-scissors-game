@@ -16,7 +16,6 @@
   }
   .plays {
     position: absolute;
-    position: absolute;
     width: 100px;
     height: 100px;
 
@@ -24,6 +23,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -moz-box-shadow: 0px 9px 2px -5px hsl(218, 47%, 17%);
+    -webkit-box-shadow: 0px 9px 2px -5px hsl(218, 47%, 17%);
+    box-shadow: 0px 9px 2px -5px hsl(218, 47%, 17%);
     .border {
       width: 80px;
       height: 80px;
@@ -32,20 +34,35 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      -moz-box-shadow: inset 0px 3px 1px hsl(228, 21%, 78%);
+      -webkit-box-shadow: inset 0px 3px 1px hsl(228, 21%, 78%);
+      box-shadow: inset 0px 3px 1px hsl(228, 21%, 78%);
+      img {
+        width: 50%;
+      }
     }
   }
-  .rock {
+  .rock__position {
     bottom: -8%;
     background-image: $rockGradient;
   }
-  .paper {
+  .paper__position {
     bottom: 75%;
     left: 2%;
     background-image: $paperGradient;
   }
-  .scissors {
+  .scissors__position {
     bottom: 75%;
     right: 2%;
+    background-image: $scissorsGradient;
+  }
+  .rock__gameOn {
+    background-image: $rockGradient;
+  }
+  .paper__gameOn {
+    background-image: $paperGradient;
+  }
+  .scissors__gameOn {
     background-image: $scissorsGradient;
   }
 }
