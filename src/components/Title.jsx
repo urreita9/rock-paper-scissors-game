@@ -1,6 +1,8 @@
 import React from "react";
+import { useGame } from "../context/gameProvider";
 
 export const Title = () => {
+  const { score } = useGame();
   return (
     <div className="title__container">
       <div className="title__left">
@@ -10,7 +12,7 @@ export const Title = () => {
       </div>
       <div className="title__right">
         <p>SCORE</p>
-        <span>12</span>
+        <span>{score}</span>
       </div>
     </div>
   );

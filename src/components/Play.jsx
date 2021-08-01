@@ -9,6 +9,7 @@ export const Play = ({ name, id, className, src }) => {
         gameOn ? `${className}__gameOn` : `${className}__position`
       }`}
       onClick={() => {
+        if (gameOn) return;
         setGameOn(true);
         getRandomInt(0, 3);
         choosePlay(id, name);

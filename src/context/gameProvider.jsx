@@ -5,6 +5,7 @@ const gameContext = createContext();
 export function useGame() {
   return useContext(gameContext);
 }
+const init = JSON.parse(localStorage.getItem("score")) || 0;
 
 export const GameProvider = ({ children }) => {
   const [plays, setPlays] = useState([
@@ -21,42 +22,83 @@ export const GameProvider = ({ children }) => {
   const [cpu, setCpu] = useState({});
   const [user, setUser] = useState({});
   const [message, setMessage] = useState("");
+  const [score, setScore] = useState(init);
+  const [rulesModal, setRulesModal] = useState(false);
 
   useEffect(() => {
-    console.log("cpu", cpu);
-    console.log("user", user);
-    // result();
-  }, [user, cpu]);
+    console.log(score);
+    console.log(message);
+    localStorage.setItem("score", JSON.stringify(score));
+  }, [score]);
+  useEffect(() => {
+    result();
+  }, [user]);
 
   function getRandomInt(min, max) {
     getHand(Math.floor(Math.random() * (max - min)) + min);
   }
   function getHand(n) {
-    console.log(n);
     const cpuPlay = plays.find((play) => play.id === n);
     setCpu(cpuPlay);
   }
   function choosePlay(id) {
     const userPlay = plays.find((play) => play.id === id);
     setUser(userPlay);
+    // result();
   }
-  //   function result() {
-  //     if (user.name === "rock") {
-  //       if (cpu.name === "rock") return setMessage("DRAW");
-  //       if (cpu.name === "paper") return setMessage("YOU LOOSE");
-  //       if (cpu.name === "scissors") return setMessage("YOU WON");
-  //     }
-  //     if (user.name === "paper") {
-  //       if (cpu.name === "paper") return setMessage("DRAW");
-  //       if (cpu.name === "scissors") return setMessage("YOU LOOSE");
-  //       if (cpu.name === "rock") return setMessage("YOU WON");
-  //     }
-  //     if (user.name === "scissors") {
-  //       if (cpu.name === "scissors") return setMessage("DRAW");
-  //       if (cpu.name === "rock") return setMessage("YOU LOOSE");
-  //       if (cpu.name === "paper") return setMessage("YOU WON");
-  //     }
-  //   }
+  function result() {
+    if (user.name === "rock") {
+      if (cpu.name === "rock") {
+        setMessage("DRAW");
+      }
+      if (cpu.name === "paper") {
+        setMessage("YOU LOOSE");
+        setScore((prev) => prev - 1);
+      }
+      if (cpu.name === "scissors") {
+        setMessage("YOU WON");
+        setScore((prev) => prev + 1);
+      }
+    } else if (user.name === "paper") {
+      if (cpu.name === "paper") {
+        setMessage("DRAW");
+      }
+      if (cpu.name === "scissors") {
+        setMessage("YOU LOOSE");
+        setScore((prev) => prev - 1);
+      }
+      if (cpu.name === "rock") {
+        setMessage("YOU WON");
+        setScore((prev) => prev + 1);
+      }
+    } else if (user.name === "scissors") {
+      if (cpu.name === "scissors") {
+        setMessage("DRAW");
+      }
+      if (cpu.name === "rock") {
+        setMessage("YOU LOOSE");
+        setScore((prev) => prev - 1);
+      }
+      if (cpu.name === "paper") {
+        setMessage("YOU WON");
+        setScore((prev) => prev + 1);
+      }
+    } else return;
+  }
+
+  function reset() {
+    setUser({});
+    setCpu({});
+    setGameOn(false);
+    setMessage("");
+  }
+  function handlePlayAgain() {
+    reset();
+  }
+
+  function handleModal() {
+    setRulesModal(!rulesModal);
+  }
 
   const values = {
     plays,
@@ -66,6 +108,13 @@ export const GameProvider = ({ children }) => {
     getRandomInt,
     user,
     cpu,
+    result,
+    message,
+    score,
+    reset,
+    rulesModal,
+    handlePlayAgain,
+    handleModal,
   };
   return <gameContext.Provider value={values}>{children}</gameContext.Provider>;
 };

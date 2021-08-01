@@ -1,8 +1,9 @@
 .options__container {
   width: 75%;
   height: fit-content;
-  margin: 150px auto;
+  margin: 80px auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -16,8 +17,8 @@
   }
   .plays {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 
     border-radius: 50%;
     display: flex;
@@ -27,8 +28,8 @@
     -webkit-box-shadow: 0px 9px 2px -5px hsl(218, 47%, 17%);
     box-shadow: 0px 9px 2px -5px hsl(218, 47%, 17%);
     .border {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       background-color: white;
       border-radius: 50%;
       display: flex;
@@ -43,18 +44,21 @@
     }
   }
   .rock__position {
-    bottom: -8%;
+    bottom: -20%;
     background-image: $rockGradient;
+    cursor: pointer;
   }
   .paper__position {
-    bottom: 75%;
-    left: 2%;
+    bottom: 65%;
+    left: 0%;
     background-image: $paperGradient;
+    cursor: pointer;
   }
   .scissors__position {
-    bottom: 75%;
-    right: 2%;
+    bottom: 65%;
+    right: 0%;
     background-image: $scissorsGradient;
+    cursor: pointer;
   }
   .rock__gameOn {
     background-image: $rockGradient;

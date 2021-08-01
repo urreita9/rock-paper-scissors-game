@@ -4,9 +4,11 @@
   align-items: center;
   margin: 20px auto;
   border: 3px solid $headerOutline;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 75%;
-  height: 100px;
+  max-width: 500px;
+  min-height: 100px;
+  max-height: 150px;
 
   .title__left {
     line-height: 0.8;

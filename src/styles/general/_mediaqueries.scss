@@ -1,0 +1,36 @@
+@media (min-width: 376px) {
+  .rules__container {
+    height: 60vw;
+    width: 60vw;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: $headerOutline;
+    }
+    .rules__img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 60px auto;
+    }
+    .close {
+      border: none;
+      background-color: transparent;
+    }
+  }
+  .rulesButton {
+    margin-right: 15px;
+    max-width: 100px;
+    cursor: pointer;
+  }
+}
