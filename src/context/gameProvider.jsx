@@ -7,7 +7,19 @@ export function useGame() {
 }
 const init = JSON.parse(localStorage.getItem("score")) || 0;
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
 export const GameProvider = ({ children }) => {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
   const [plays, setPlays] = useState([
     { name: "rock", id: 0, className: "rock", src: "images/icon-rock.svg" },
     { name: "paper", id: 1, className: "paper", src: "images/icon-paper.svg" },
@@ -24,6 +36,14 @@ export const GameProvider = ({ children }) => {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(init);
   const [rulesModal, setRulesModal] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     console.log(score);
@@ -101,6 +121,7 @@ export const GameProvider = ({ children }) => {
   }
 
   const values = {
+    windowDimensions,
     plays,
     gameOn,
     setGameOn,

@@ -1,36 +1,62 @@
 @media (min-width: 376px) {
   .rules__container {
-    height: 60vw;
+    height: 60vh;
     width: 60vw;
     background-color: white;
     position: absolute;
     z-index: 1;
-    top: 10%;
+    top: 20%;
+    left: 20%;
     margin: 0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-      color: $headerOutline;
+    .rules__title__desktop {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      h2 {
+        font-size: 4vw;
+        color: $headerOutline;
+      }
+      .close {
+        border: none;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
     }
+
     .rules__img {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 60px auto;
-    }
-    .close {
-      border: none;
-      background-color: transparent;
+      margin: 20px auto;
+      width: 70%;
+      max-width: 250px;
+      max-height: 250px;
     }
   }
   .rulesButton {
     margin-right: 15px;
+    margin-bottom:15px;
     max-width: 100px;
     cursor: pointer;
   }
+}
+@media (min-width: 899px){
+    .rules__container {
+
+       .rules__title__desktop {
+      h2 {
+        font-size: 3vw;
+      }
+    }
+}
 }
